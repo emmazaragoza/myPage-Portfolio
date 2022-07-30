@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const aboutService = require('../service/aboutMe.js')
 const aboutMeSer = new aboutService()
+const tokenVerification = require('../middleware/tokenVerification.js')
+
 
 router.post('/', async(req, res) => {
     try {
@@ -16,7 +18,7 @@ router.post('/', async(req, res) => {
     
 })
 
-router.post('/modify', async(req, res) => {
+router.post('/modify', tokenVerification, async(req, res) => {
     try {
         const data = await aboutMeSer.modifyUser(req.body)
         return res.json(data)
