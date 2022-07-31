@@ -5,7 +5,14 @@ require('dotenv').config();
 
 dbConnection();
 
-http.listen(process.env.SERVER_PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${process.env.SERVER_PORT}`);
+
+let port = process.env.SERVER_PORT
+if(port == null || port == ""){
+  port = 5000
+}
+
+
+http.listen(port, () => {
+  console.log(`Servidor corriendo en el puerto ${port}`);
 });
 
