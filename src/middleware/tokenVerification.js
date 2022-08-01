@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken')
 const {SECRETKEY} = process.env
-console.log(SECRETKEY)
 
 const tokenVerification = async (req, res, next) => {
     const bearerHeader = req.headers
