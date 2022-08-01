@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev" : "nodemon index.js",
     "start": "cors-env NODE_ENV=production node index.js"
   },
   "keywords": [],
